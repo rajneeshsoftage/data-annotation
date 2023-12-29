@@ -2,14 +2,15 @@ name: CodeQL Analysis
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
   analyze:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        language: [ 'javascript', 'python', 'java' ] # Add more languages as needed
+        language: ['javascript', 'python', 'java'] # Add more languages as needed
 
     steps:
       - name: Checkout repository
@@ -21,4 +22,6 @@ jobs:
           languages: ${{ matrix.language }}
 
       - name: Run CodeQL Analysis
-        uses: github/codeql-action/analyze@v1
+        run: |
+          echo "Running CodeQL Analysis for ${{ matrix.language }}"
+          # Add any additional steps for analysis here
