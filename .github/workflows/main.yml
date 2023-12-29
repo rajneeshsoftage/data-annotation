@@ -12,13 +12,13 @@ jobs:
         language: [ 'javascript', 'python', 'java' ] # Add more languages as needed
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    - name: Initialize CodeQL
-      uses: github/codeql-action/init@v1
-      with:
-        languages: ${{ matrix.language }}
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v1
+        with:
+          languages: ${{ matrix.language }}
 
-    - name: Run CodeQL Analysis
-      uses: github/codeql-action/analyze@v1
+      - name: Run CodeQL Analysis
+        uses: github/codeql-action/analyze@v1
